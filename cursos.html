@@ -33,7 +33,7 @@
             <div class="curso">
                 <h3>Git e GitHub: compartilhando e colaborando em projetos</h3>
                 <p>Realizado em: 23/03/2024</p>
-                <iframe src="https://cursos.alura.com.br/certificate/bbdbaace-a714-4963-94c2-7ec135da43f8?lang=pt_BR"></iframe>
+                <p>Link Certificado:</p><a href="https://cursos.alura.com.br/certificate/bbdbaace-a714-4963-94c2-7ec135da43f8?lang=pt_BR">Alura</a>
             </div>
             
             <!-- Adicione mais cursos conforme necessário -->
@@ -54,7 +54,10 @@
             
             const cursos = cursosSection.querySelectorAll('.curso');
             cursos.forEach(curso => {
-                const dataCurso = new Date(curso.querySelector('p').textContent.split(': ')[1]);
+                const dataCursoStr = curso.querySelector('p').textContent.split(': ')[1];
+                const dataCursoParts = dataCursoStr.split('/');
+                const dataCurso = new Date(dataCursoParts[2], dataCursoParts[1] - 1, dataCursoParts[0]);
+                
                 if (dataCurso >= dataInicial && dataCurso <= dataFinal) {
                     curso.style.display = 'block';
                 } else {

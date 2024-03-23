@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William BM - Cursos Realizados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>William Bragagnollo Montini</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Sobre Mim</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="cursos.html">Cursos Realizados</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Filtrar Cursos por Período</h2>
+            <form id="filtro-form">
+                <label for="data-inicial">Data Inicial:</label>
+                <input type="date" id="data-inicial" name="data-inicial">
+                <label for="data-final">Data Final:</label>
+                <input type="date" id="data-final" name="data-final">
+                <button type="submit">Filtrar</button>
+            </form>
+        </section>
+        <section id="cursos-section">
+            <h2>Cursos Realizados</h2>
+            <div class="curso">
+                <h3>Nome do Curso 1</h3>
+                <p>Realizado em: Data do Curso 1</p>
+                <iframe src="https://cursos.alura.com.br/certificate/bbdbaace-a714-4963-94c2-7ec135da43f8?lang=pt_BR"></iframe>
+            </div>
+            <div class="curso">
+                <h3>Nome do Curso 2</h3>
+                <p>Realizado em: Data do Curso 2</p>
+                <iframe src="https://cursos.alura.com.br/certificate/bbdbaace-a714-4963-94c2-7ec135da43f8?lang=pt_BR"></iframe>
+            </div>
+            <!-- Adicione mais cursos conforme necessário -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Meu Perfil de Desenvolvedor</p>
+    </footer>
+
+    <script>
+        const filtroForm = document.getElementById('filtro-form');
+        const cursosSection = document.getElementById('cursos-section');
+        
+        filtroForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const dataInicial = new Date(document.getElementById('data-inicial').value);
+            const dataFinal = new Date(document.getElementById('data-final').value);
+            
+            const cursos = cursosSection.querySelectorAll('.curso');
+            cursos.forEach(curso => {
+                const dataCurso = new Date(curso.querySelector('p').textContent.split(': ')[1]);
+                if (dataCurso >= dataInicial && dataCurso <= dataFinal) {
+                    curso.style.display = 'block';
+                } else {
+                    curso.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,100 +12,51 @@
         <nav>
             <ul>
                 <li><a href="index.html">Sobre Mim</a></li>
-                <li><a href="contato.html">Contato</a></li>
-                <li><a href="cursos.html">Cursos Realizados</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+                <li><a href="cursos.html" aria-current="page">Cursos Realizados</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section>
-            <h2>Filtrar Cursos por Período</h2>
-            <form id="filtro-form">
-                <label for="data-inicial">Data Inicial:</label>
-                <input type="date" id="data-inicial" name="data-inicial">
-                <label for="data-final">Data Final:</label>
-                <input type="date" id="data-final" name="data-final">
-                <button type="submit">Filtrar</button>
-            </form>
-        </section>
-        <section id="cursos-section">
             <h2>Cursos Realizados</h2>
-            <br>
 
-            <div class="curso">
-                <h3>Formação Angular + Spring Boot</h3>
-                <p>Finalizado em: 16/08/2024</p>
-                <p>Link Certificado:
-                    <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-64c2d62b-3ab3-41d8-8eff-a37e7d78a37b.jpg">Udemy</a>
-                </p>
+            <div class="filtros">
+                <div>
+                    <label for="busca">Buscar</label>
+                    <input type="search" id="busca" placeholder="Nome do curso, instituição ou tecnologia">
+                </div>
+                <div>
+                    <label for="filtro-instituicao">Instituição</label>
+                    <select id="filtro-instituicao">
+                        <option value="">Todas</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="ordem">Ordenar por</label>
+                    <select id="ordem">
+                        <option value="recentes">Mais recentes</option>
+                        <option value="antigos">Mais antigos</option>
+                        <option value="titulo">Título (A-Z)</option>
+                    </select>
+                </div>
             </div>
-            <hr>
 
-            <div class="curso">
-                <h3>Hacking Your Web Applications</h3>
-                <p>Finalizado em: 28/05/2024</p>
-                <p>Link Certificado:
-                    <a href="https://learn.datadoghq.com/certificates/msulqiipg4">DATADOG</a>
-                </p>
-            </div>
-            <hr>
-            
-            <div class="curso">
-                <h3>Git e GitHub: compartilhando e colaborando em projetos</h3>
-                <p>Finalizado em: 23/03/2024</p>
-                <p>Link Certificado:
-                    <a href="https://cursos.alura.com.br/certificate/bbdbaace-a714-4963-94c2-7ec135da43f8?lang=pt_BR">Alura</a>
-                </p>
-            </div>
-            <hr>
+            <div class="chips" id="filtro-tags" aria-label="Filtrar por tecnologia"></div>
 
-            <div class="curso">
-                <h3>TypeScript parte 1: evoluindo seu JavaScript</h3>
-                <p>Finalizado em: 01/02/2024</p>
-                <p>Link Certificado:
-                    <a href="https://cursos.alura.com.br/certificate/be8ad648-9954-4d10-a2bf-4c06dfc536ee?lang=pt_BR">Alura</a>
-                </p>
+            <div class="barra-resumo">
+                <span id="resumo" aria-live="polite">Carregando...</span>
+                <button type="button" id="limpar" class="link-botao">Limpar filtros</button>
             </div>
-            <hr>
 
-            <div class="curso">
-                <h3>Angular 14: aplique os conceitos e desenvolva seu primeiro CRUD</h3>
-                <p>Finalizado em: 28/11/2023</p>
-                <p>Link Certificado:
-                    <a href="https://cursos.alura.com.br/certificate/bd1ca2a6-a7ce-47bd-843f-9c8b343f0442?lang=pt_BR">Alura</a>
-                </p>
-            </div>
-            <hr>
-            
-            <!-- Adicione mais cursos conforme necessário -->
+            <div class="grade" id="lista-cursos"></div>
+            <p class="vazio" id="vazio" hidden>Nenhum curso encontrado com esses filtros.</p>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Meu Perfil de Desenvolvedor</p>
     </footer>
 
-    <script>
-        const filtroForm = document.getElementById('filtro-form');
-        const cursosSection = document.getElementById('cursos-section');
-        
-        filtroForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const dataInicial = new Date(document.getElementById('data-inicial').value);
-            const dataFinal = new Date(document.getElementById('data-final').value);
-            
-            const cursos = cursosSection.querySelectorAll('.curso');
-            cursos.forEach(curso => {
-                const dataCursoStr = curso.querySelector('p').textContent.split(': ')[1];
-                const dataCursoParts = dataCursoStr.split('/');
-                const dataCurso = new Date(dataCursoParts[2], dataCursoParts[1] - 1, dataCursoParts[0]);
-                
-                if (dataCurso >= dataInicial && dataCurso <= dataFinal) {
-                    curso.style.display = 'block';
-                } else {
-                    curso.style.display = 'none';
-                }
-            });
-        });
-    </script>
+    <script src="cursos.js"></script>
 </body>
 </html>

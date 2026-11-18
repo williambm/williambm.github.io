@@ -1,0 +1,58 @@
+[
+  {
+    "titulo": "Formação Angular + Spring Boot",
+    "instituicao": "Udemy",
+    "data": "2024-08-16",
+    "cargaHoraria": null,
+    "tags": [
+      "Angular",
+      "Spring Boot",
+      "Java"
+    ],
+    "link": "https://udemy-certificate.s3.amazonaws.com/image/UC-64c2d62b-3ab3-41d8-8eff-a37e7d78a37b.jpg"
+  },
+  {
+    "titulo": "Hacking Your Web Applications",
+    "instituicao": "Datadog",
+    "data": "2024-05-28",
+    "cargaHoraria": null,
+    "tags": [
+      "Segurança",
+      "DevOps"
+    ],
+    "link": "https://learn.datadoghq.com/certificates/msulqiipg4"
+  },
+  {
+    "titulo": "Git e GitHub: compartilhando e colaborando em projetos",
+    "instituicao": "Alura",
+    "data": "2024-03-23",
+    "cargaHoraria": null,
+    "tags": [
+      "Git",
+      "GitHub"
+    ],
+    "link": "https://cursos.alura.com.br/certificate/bbdbaace-a714-4963-94c2-7ec135da43f8?lang=pt_BR"
+  },
+  {
+    "titulo": "TypeScript parte 1: evoluindo seu JavaScript",
+    "instituicao": "Alura",
+    "data": "2024-02-01",
+    "cargaHoraria": null,
+    "tags": [
+      "TypeScript",
+      "JavaScript"
+    ],
+    "link": "https://cursos.alura.com.br/certificate/be8ad648-9954-4d10-a2bf-4c06dfc536ee?lang=pt_BR"
+  },
+  {
+    "titulo": "Angular 14: aplique os conceitos e desenvolva seu primeiro CRUD",
+    "instituicao": "Alura",
+    "data": "2023-11-28",
+    "cargaHoraria": null,
+    "tags": [
+      "Angular",
+      "TypeScript"
+    ],
+    "link": "https://cursos.alura.com.br/certificate/bd1ca2a6-a7ce-47bd-843f-9c8b343f0442?lang=pt_BR"
+  }
+]
